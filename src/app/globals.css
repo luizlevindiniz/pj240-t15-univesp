@@ -10,18 +10,67 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #838383 #0c0c0e;
+  scrollbar-color: #838383 rgba(220, 220, 220, 0.624);
   scroll-behavior: smooth;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-weight: 400;
+  font-style: normal;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(157 209 111);
+}
+
+#app-outlet {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 button {
@@ -34,10 +83,4 @@ textarea:focus,
 input:focus,
 select:focus {
   outline-color: rgba(220, 220, 220, 0.624);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
