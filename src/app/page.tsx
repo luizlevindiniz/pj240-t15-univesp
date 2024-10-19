@@ -1,26 +1,28 @@
-import FoodTruckCard from "@/app/components/FoodTruckCard";
+import FoodTruckCard from "@/src/app/components/FoodTruckCard";
+import axios from "axios";
 
-export default function Home() {
-  const foodTrucks = [
-    {
-      id: 1,
-      name: "Taco Fiesta",
-      cuisine: "Mexican",
-      openingHours: "11:00 AM - 8:00 PM",
-    },
-    {
-      id: 2,
-      name: "Burger Bliss",
-      cuisine: "American",
-      openingHours: "12:00 PM - 9:00 PM",
-    },
-    {
-      id: 3,
-      name: "Sushi Roll",
-      cuisine: "Japanese",
-      openingHours: "11:30 AM - 7:30 PM",
-    },
-  ];
+type Truck = {
+  id: string;
+  name: string;
+  description: string;
+  image_url: string;
+  cuisine: string;
+  start_hour: string;
+  end_hour: string;
+};
+
+async function getAllTrucks() {
+  const response = await axios.get(
+    `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/foodtrucks`
+  );
+  if (response.status !== 200) {
+    throw new Error("Failed to fetch food trucks");
+  }
+  return (await response.data) as { trucks: Truck[] };
+}
+
+export default async function Home() {
+  const { trucks } = await getAllTrucks();
 
   return (
     <main className="flex flex-col">
@@ -29,9 +31,13 @@ export default function Home() {
           O melhor do seu condomínio
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {foodTrucks.map((truck) => (
-            <FoodTruckCard key={truck.id} truck={truck} />
-          ))}
+          {trucks ? (
+            trucks.map((truck) => (
+              <FoodTruckCard key={truck.id} truck={truck} />
+            ))
+          ) : (
+            <div>Sem foodtrucks encontrados :C </div>
+          )}
         </div>
       </section>
     </main>

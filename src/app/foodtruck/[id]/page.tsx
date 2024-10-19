@@ -1,5 +1,5 @@
-import FoodTruckDetails from "@/app/components/FoodTruckDetails";
-import MissingFoodTruck from "@/app/components/MissingFoodTruck";
+import FoodTruckDetails from "@/src/app/components/FoodTruckDetails";
+import MissingFoodTruck from "@/src/app/components/MissingFoodTruck";
 
 // This would typically come from an API or database
 const foodTrucks = [
