@@ -18,12 +18,10 @@ export async function getAllTrucks() {
   return data as Truck[];
 }
 
-export async function getTruckMenuByTruckId(truckId: string) {
+export async function getTruckById(truckId: string) {
   const supabase = createClient();
-  const { data, error } = await supabase
-    .from("menu_items")
-    .select("*")
-    .eq("truck_id", truckId);
+  const { data, error } = await supabase.from("trucks").select("*").eq("id", truckId).single();
   if (error) throw error;
-  return data;
+
+  return data as Truck;
 }

@@ -9,24 +9,17 @@ export default function ContactPage() {
       <h1 className="text-4xl font-bold mb-6 text-center">Contato</h1>
       <div className="bg-white shadow-lg rounded-lg p-6">
         <p className="text-lg mb-4">
-          We'd love to hear from you! Whether you have a question about our
-          services, want to partner with us, or just want to say hello, don't
-          hesitate to reach out.
+          Adoraríamos ouvir você! Se você tem alguma dúvida sobre nossos serviços, quer estabelecer
+          uma parceria conosco ou simplesmente quer dar um olá, não hesite em entrar em contato.
         </p>
         <div className="mb-6">
-          <h2 className="text-2xl font-semibold mb-2">General Inquiries</h2>
-          <p>Email: info@foodtruckfinder.com</p>
-          <p>Phone: (555) 123-4567</p>
-        </div>
-        <div className="mb-6">
-          <h2 className="text-2xl font-semibold mb-2">Support</h2>
-          <p>Email: support@foodtruckfinder.com</p>
-          <p>Phone: (555) 987-6543</p>
+          <h2 className="text-2xl font-semibold mb-2">Assuntos Gerais</h2>
+          <p>Email: info@condotrucks.com.br</p>
+          <p>WhatsApp: (+55) 19 99123-4567</p>
         </div>
         <div>
           <h2 className="text-2xl font-semibold mb-2">Business Hours</h2>
-          <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-          <p>Saturday - Sunday: Closed</p>
+          <p>Segunda a sexta: 9:00 às 17:00</p>
         </div>
       </div>
     </main>

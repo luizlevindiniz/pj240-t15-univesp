@@ -10,7 +10,7 @@ export default function Navbar() {
           </Link>
           <ul className="flex space-x-4">
             <li>
-              <Link href="/" className="hover:underline">
+              <Link href="/foodtrucks" className="hover:underline">
                 Trucks
               </Link>
             </li>
