@@ -18,7 +18,6 @@ export default async function TruckPage({ params }: Readonly<{ params: { id: str
   }
 
   const { menu } = await getTruckMenuByTruckId(truck.id);
-  console.log(menu);
 
   return <FoodTruckDetails truck={truck} menu={menu} />;
 }

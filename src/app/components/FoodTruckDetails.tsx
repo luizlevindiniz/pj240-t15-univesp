@@ -28,56 +28,58 @@ export default function FoodTruckDetails({
   menu,
 }: Readonly<{ truck: Truck; menu: Item[] }>) {
   return (
-    <main className="flex-grow container mx-auto px-4 py-8">
-      <div className="flex items-center justify-between my-3">
-        <Image
-          src={truck.image_url}
-          alt={truck.name}
-          width={750}
-          height={400}
-          className="rounded-lg"
-          priority
-        />
-        <div className="text-right text-red-500">
-          <h1 className="text-4xl font-bold mb-4 ">{truck.name}</h1>
-          <p className="text-l mb-2">{truck.description}</p>
-          <p className="text-l mb-2 font-bold ">{truck.cuisine.toUpperCase()}</p>
-        </div>
-      </div>
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <div>
-          <p className="text-xl font-bold mb-2">
-            Funcionamento: {formatDate(truck.start_hour)} até {formatDate(truck.end_hour)}
-          </p>
-        </div>
-        <div className="flex flex-col">
-          <h2 className="text-2xl font-bold my-4">Menu</h2>
-          <div>
-            <ul className="flex items-center justify-between list-disc list-inside">
-              {menu ? (
-                menu.map((item: Item) => (
-                  <li key={item.id} className="text-lg w-[400px] h-[400px]">
-                    <Image
-                      src={item.image_url}
-                      alt={item.meal_name}
-                      width={200}
-                      height={200}
-                      className="rounded-lg w-full h-[200px]"
-                    />
-                    <strong>{item.meal_name}</strong>
-                    <div className="my-2">
-                      <p> R$ {item.price}</p>
-                      <p>{item.description}</p>
-                    </div>
-                  </li>
-                ))
-              ) : (
-                <p>Menu não disponível</p>
-              )}
-            </ul>
+    <main className="flex flex-col">
+      <section className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row items-center justify-between my-3">
+          <div className="max-w-[750px] max-h-[450px] overflow-hidden">
+            <Image
+              src={truck.image_url}
+              alt={truck.name}
+              width={750}
+              height={400}
+              className="rounded-lg h-full object-cover object-center w-full"
+              priority
+            />
+          </div>
+          <div className="text-center md:text-right text-red-500 ml-2">
+            <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold my-4 ">
+              {truck.name}
+            </h1>
+            <p className="text-base md:text-lg lg:text-xl xl:text-2xl mb-2">{truck.description}</p>
+            <p className="text-lg mb-2 font-bold ">{truck.cuisine.toUpperCase()}</p>
           </div>
         </div>
-      </div>
+        <div className="bg-[#d0ffa26c] shadow-2xl border border-red-300 rounded-lg p-6">
+          <div className="flex flex-col">
+            <div>
+              <ul className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 list-disc list-inside">
+                {menu ? (
+                  menu.map((item: Item) => (
+                    <li key={item.id} className="w-full max-w-[450px] h-full m-auto">
+                      <div>
+                        <Image
+                          src={item.image_url}
+                          alt={item.meal_name}
+                          width={300}
+                          height={300}
+                          className="w-full h-52 object-cover rounded-md"
+                        />
+                      </div>
+                      <h3 className="text-lg font-bold my-2">{item.meal_name}</h3>
+                      <div className="mb-2">
+                        <p className="font-thin">R$ {item.price}</p>
+                        <p className="font-style: italic">{item.description}</p>
+                      </div>
+                    </li>
+                  ))
+                ) : (
+                  <p>Menu não disponível</p>
+                )}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
