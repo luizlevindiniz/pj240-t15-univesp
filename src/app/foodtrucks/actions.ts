@@ -10,9 +10,9 @@ type Truck = {
 };
 
 const frontEndUrl =
-  process.env.NEXT_PUBLIC_NODE_ENV === "development"
+  process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : "https://foodtruck-finder.vercel.app";
+    : "https://find-my-truck.vercel.app";
 
 export async function getAllTrucks() {
   const response = await fetch(`${frontEndUrl}/api/foodtrucks`);
