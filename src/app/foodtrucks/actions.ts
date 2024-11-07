@@ -16,8 +16,8 @@ const frontEndUrl =
 
 export async function getAllTrucks() {
   const response = await fetch(`${frontEndUrl}/api/foodtrucks`);
-  if (response.status !== 200) {
-    throw new Error("Failed to fetch food trucks");
+  if (response.status === 200) {
+    return (await response.json()) as { trucks: Truck[] };
   }
-  return (await response.json()) as { trucks: Truck[] };
+  return { trucks: [] };
 }

@@ -25,16 +25,16 @@ const frontEndUrl =
 
 export async function getTruckInfo(id: string) {
   const response = await fetch(`${frontEndUrl}/api/foodtrucks/${id}`);
-  if (response.status !== 200) {
-    throw new Error("Failed to fetch food trucks");
+  if (response.status === 200) {
+    return (await response.json()) as { truck: Truck };
   }
-  return (await response.json()) as { truck: Truck };
+  return { truck: null };
 }
 
 export async function getTruckMenuByTruckId(id: string) {
   const response = await fetch(`${frontEndUrl}/api/items/${id}`);
-  if (response.status !== 200) {
-    throw new Error("Failed to truck menu");
+  if (response.status === 200) {
+    return (await response.json()) as { menu: Item[] };
   }
-  return (await response.json()) as { menu: Item[] };
+  return { menu: null };
 }

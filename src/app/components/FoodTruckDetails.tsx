@@ -20,9 +20,6 @@ type Item = {
   image_url: string;
 };
 
-const formatDate = (date: string) => {
-  return date.substring(0, 5);
-};
 export default function FoodTruckDetails({
   truck,
   menu,
@@ -50,6 +47,7 @@ export default function FoodTruckDetails({
           </div>
         </div>
         <div className="bg-[#d0ffa26c] shadow-2xl border border-red-300 rounded-lg p-6">
+          <h2 className="text-center mb-4 text-2xl md:text-3xl font-bold">Menu</h2>
           <div className="flex flex-col">
             <div>
               <ul className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 list-disc list-inside">
