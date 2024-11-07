@@ -21,7 +21,7 @@ type Item = {
 const frontEndUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : "https://find-my-truck.vercel.app";
+    : "https://pj240-t15-univesp.vercel.app";
 
 export async function getTruckInfo(id: string) {
   const response = await fetch(`${frontEndUrl}/api/foodtrucks/${id}`);
